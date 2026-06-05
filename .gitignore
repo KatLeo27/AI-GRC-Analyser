@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .env
+.env.production
 *.local
 server/logs/*.log
 server/src/data/policies.json
