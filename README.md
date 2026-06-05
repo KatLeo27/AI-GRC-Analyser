@@ -2,7 +2,7 @@
 
 Automates third-party vendor security reviews using AI. Vendors submit compliance documents through a secure portal, which are scored against regional regulations (DPDP Act, GDPR, HIPAA, and more) and company policies. Results sync to Salesforce CRM with automatic email notifications.
 
-**Live Demo:** [Add link after deployment]
+**Live Demo:** https://ai-grc-analyser.vercel.app
 
 ---
 
