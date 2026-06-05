@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 const config = require('./config');
 const logger = require('./utils/logger');
 const express = require('express');
@@ -9,6 +10,7 @@ const complianceRouter = require('./routes/compliance');
 const policiesRouter = require('./routes/policies');
 
 const app = express();
+const isProduction = process.env.NODE_ENV === 'production';
 
 app.use(cors({ origin: config.CORS_ORIGINS.split(',').map(o => o.trim()) }));
 app.use(express.json());
@@ -54,6 +56,15 @@ app.use((err, _req, res, _next) => {
     },
   });
 });
+
+// Serve React frontend in production
+if (isProduction) {
+  const clientDist = path.join(__dirname, '../../client/dist');
+  app.use(express.static(clientDist));
+  app.get('*', (_req, res) => {
+    res.sendFile(path.join(clientDist, 'index.html'));
+  });
+}
 
 app.listen(config.PORT, () => {
   logger.info(`Server running on http://localhost:${config.PORT}`);

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { VendorData } from '../types';
 
-const API_BASE = import.meta.env.VITE_API_URL || '';
+const API_BASE = import.meta.env.VITE_API_URL ?? '';
 
 export async function submitCompliance(vendor: VendorData, file: File): Promise<void> {
   const form = new FormData();
