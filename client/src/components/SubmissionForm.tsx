@@ -1,4 +1,4 @@
-import { useState, useRef, DragEvent, ChangeEvent, FormEvent } from 'react';
+import { useState, useRef, DragEvent, FormEvent } from 'react';
 import { Theme, Status, VendorData } from '../types';
 
 interface Props {

@@ -14,9 +14,8 @@ export default function StepIndicator({ currentStep, theme }: Props) {
     <div className="flex items-center gap-0 mb-6 w-full max-w-lg">
       {steps.map((label, i) => {
         const stepNum = i + 1;
-        const isDone    = stepNum < currentStep;
-        const isActive  = stepNum === currentStep;
-        const isFuture  = stepNum > currentStep;
+        const isDone   = stepNum < currentStep;
+        const isActive = stepNum === currentStep;
 
         return (
           <div key={label} className="flex items-center flex-1 last:flex-none">
