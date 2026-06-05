@@ -4,20 +4,21 @@ require('dotenv').config();
 
 const AI_PROVIDER = process.env.AI_PROVIDER || 'ollama';
 
-if (AI_PROVIDER === 'openai' && !process.env.OPENAI_API_KEY) {
-  console.error('[config] AI_PROVIDER=openai requires OPENAI_API_KEY to be set.');
-  console.error('[config] Copy .env.example to .env and fill in your credentials.');
-  process.exit(1);
-}
+const DEFAULT_MODELS = {
+  openai: 'gpt-4o',
+  groq:   'llama-3.1-8b-instant',
+  ollama: 'qwen2.5-coder:1.5b',
+};
 
 module.exports = Object.freeze({
   PORT: parseInt(process.env.PORT || '3000', 10),
   CORS_ORIGINS: process.env.CORS_ORIGINS || 'http://localhost:5173',
 
   AI_PROVIDER,
-  OPENAI_API_KEY: process.env.OPENAI_API_KEY || 'ollama',
+  OPENAI_API_KEY:  process.env.OPENAI_API_KEY  || 'dummy',
+  GROQ_API_KEY:    process.env.GROQ_API_KEY    || 'dummy',
   OLLAMA_BASE_URL: process.env.OLLAMA_BASE_URL || 'http://localhost:11434/v1',
-  AI_MODEL: process.env.AI_MODEL || (AI_PROVIDER === 'openai' ? 'gpt-4o' : 'qwen2.5-coder:1.5b'),
+  AI_MODEL: process.env.AI_MODEL || DEFAULT_MODELS[AI_PROVIDER] || 'qwen2.5-coder:1.5b',
 
   // Email — optional; leave SMTP_USER blank to use Ethereal test account in development
   SMTP_HOST:   process.env.SMTP_HOST   || 'smtp.ethereal.email',

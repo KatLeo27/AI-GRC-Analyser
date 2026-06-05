@@ -5,10 +5,19 @@ const { ComplianceSchema } = require('../schemas/complianceSchema');
 const config = require('../config');
 const logger  = require('../utils/logger');
 
-const clientOptions = { apiKey: config.OPENAI_API_KEY };
-if (config.AI_PROVIDER === 'ollama') {
-  clientOptions.baseURL = config.OLLAMA_BASE_URL;
-}
+const BASE_URLS = {
+  groq:   'https://api.groq.com/openai/v1',
+  ollama: config.OLLAMA_BASE_URL,
+};
+const API_KEYS = {
+  openai: config.OPENAI_API_KEY,
+  groq:   config.GROQ_API_KEY,
+  ollama: 'ollama',
+};
+const clientOptions = {
+  apiKey:  API_KEYS[config.AI_PROVIDER]  || 'dummy',
+  baseURL: BASE_URLS[config.AI_PROVIDER] || undefined,
+};
 const client = new OpenAI(clientOptions);
 logger.info('AI client initialised', { provider: config.AI_PROVIDER, model: config.AI_MODEL });
 
