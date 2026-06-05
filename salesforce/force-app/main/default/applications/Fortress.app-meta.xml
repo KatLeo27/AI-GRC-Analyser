@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>Compliance_Review__c</defaultLandingTab>
+    <description>Fortress Vendor Compliance Management</description>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Fortress</label>
+    <navType>Standard</navType>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>Compliance_Review__c</tabs>
+    <uiType>Lightning</uiType>
+    <formFactors>Large</formFactors>
+    <formFactors>Small</formFactors>
+</CustomApplication>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>kathy.jane06.22e68cb2c7a7@agentforce.com</contactEmail>
+    <label>Fortress API</label>
+    <oauthConfig>
+        <callbackUrl>http://localhost:3000</callbackUrl>
+        <scopes>Api</scopes>
+        <scopes>RefreshToken</scopes>
+        <scopes>OfflineAccess</scopes>
+    </oauthConfig>
+</ConnectedApp>

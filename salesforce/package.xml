@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Compliance_Review__c.Security_Score__c</members>
+        <members>Compliance_Review__c.Risk_Status__c</members>
+        <members>Compliance_Review__c.AI_Audit_Summary__c</members>
+        <members>Compliance_Review__c.Contact_Email__c</members>
+        <name>CustomField</name>
+    </types>
+    <version>60.0</version>
+</Package>
